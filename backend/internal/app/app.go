@@ -8,16 +8,12 @@ import (
 	"net/http"
 	"os"
 
-	"xenforo/app/internal/config"
-	httpControllerV1 "xenforo/app/internal/controller/http/v1"
-	AuthMiddleware "xenforo/app/internal/domain/auth/middleware"
-	EventUC "xenforo/app/internal/domain/event/usecase"
-	MailUC "xenforo/app/internal/domain/mail/usecase"
-	SportUC "xenforo/app/internal/domain/sport/usecase"
-	UserUC "xenforo/app/internal/domain/user/usecase"
-	"xenforo/app/pkg/client/flashliveSports"
-	"xenforo/app/pkg/client/gorm_postgesql"
-	"xenforo/app/pkg/logging"
+	"hahaton/config"
+	v1 "hahaton/internal/controller/http/v1"
+	"hahaton/internal/domain/auth/middleware"
+	"hahaton/internal/domain/user/usecase"
+	"hahaton/pkg/client/gorm_postgesql"
+	"hahaton/pkg/logging"
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/cors"
@@ -47,26 +43,18 @@ func NewApp(ctx context.Context, cfg *config.Config) (App, error) {
 	)
 	pgClient := gorm_postgesql.NewClient(pgConfig)
 
-	// Clients
-	fsClient := flashliveSports.NewFlashlightSportClient(ctx, cfg.FlashLiveSports.Token)
-
 	// Controller
 	logging.Info(ctx, "useCases initializing")
-	mailUC := MailUC.NewMailUseCase(ctx, cfg, pgClient)
-	userUC := UserUC.NewUserUseCase(ctx, cfg, pgClient, mailUC)
-	sportUC := SportUC.NewSportsUseCase(ctx, fsClient)
-	eventUC := EventUC.NewEventUseCase(ctx, fsClient)
+	userUC := usecase.NewUserUseCase(ctx, cfg, pgClient)
 
 	// Middlewares
 	logging.Info(ctx, "middlewares initializing")
-	authMiddleware := AuthMiddleware.NewAuth(ctx, cfg.App.Jwt.AccessTokenPrivateKey, userUC)
+	authMiddleware := middleware.NewAuth(ctx, cfg.App.Jwt.AccessTokenPrivateKey, userUC)
 
 	// Controllers
 	logging.Info(ctx, "controllers initializing")
-	httpControllerV1.NewRouter(router, ctx, authMiddleware, httpControllerV1.Controller{
-		UserUC:  userUC,
-		SportUC: sportUC,
-		EventUC: eventUC,
+	v1.NewRouter(router, ctx, authMiddleware, v1.Controller{
+		UserUC: userUC,
 	})
 
 	return App{

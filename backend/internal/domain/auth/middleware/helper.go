@@ -4,7 +4,8 @@ import (
 	"errors"
 	"net/http"
 	"strings"
-	"xenforo/app/pkg/api"
+
+	"hahaton/pkg/api"
 
 	"github.com/gin-gonic/gin"
 )

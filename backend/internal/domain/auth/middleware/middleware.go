@@ -3,7 +3,7 @@ package middleware
 import (
 	"context"
 
-	"xenforo/app/internal/domain/user"
+	"hahaton/internal/domain/user"
 )
 
 type Init struct {

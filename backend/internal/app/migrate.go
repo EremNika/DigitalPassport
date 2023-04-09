@@ -3,11 +3,10 @@ package app
 import (
 	"context"
 
-	"xenforo/app/internal/config"
-	MailModel "xenforo/app/internal/domain/mail/model"
-	UserModel "xenforo/app/internal/domain/user/model"
-	"xenforo/app/pkg/client/gorm_postgesql"
-	"xenforo/app/pkg/logging"
+	"hahaton/config"
+	"hahaton/internal/domain/user/model"
+	"hahaton/pkg/client/gorm_postgesql"
+	"hahaton/pkg/logging"
 )
 
 func init() {
@@ -25,7 +24,7 @@ func init() {
 	pgClient := gorm_postgesql.NewClient(pgConfig)
 
 	logging.Info(ctx, "start migrations")
-	err := pgClient.AutoMigrate(&UserModel.User{}, MailModel.MailActivate{})
+	err := pgClient.AutoMigrate(&model.User{})
 
 	if err != nil {
 		logging.Error(ctx, err)
