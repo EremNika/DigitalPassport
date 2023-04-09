@@ -1,4 +1,4 @@
-import {FC} from "react";
+import { FC, useEffect } from "react";
 import docsImg from '@/assets/img/docs.png'
 import notificationImg from '@/assets/img/notification.png'
 import cardsImg from '@/assets/img/cards.png'
@@ -7,8 +7,21 @@ import menuImg from '@/assets/img/menu.png'
 import gerbImg from '@/assets/img/gerb.png'
 
 import './home.styles.css'
+import { useAppDispatch, useAppSelector } from "@/store";
+import { fetchUser, selectUser } from "@/store/slices/user.slice";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage: FC = () => {
+    const user = useAppSelector(selectUser)
+    const navigate = useNavigate()
+
+
+    useEffect(() => {
+        if (!user.login) {
+            navigate('/login')
+        }
+    }, [])
+
     return (
         <main>
             <div className="container">
@@ -33,9 +46,9 @@ export const HomePage: FC = () => {
                         </div>
                         <div className="info_fio">
                             <div className="info_fio__text">
-                                <div>Фамилия:</div>
-                                <div>Имя:</div>
-                                <div>Отчество:</div>
+                                <div>Фамилия: {user.surname}</div>
+                                <div>Имя: {user.name}</div>
+                                <div>Отчество: {user.patronymic}</div>
                             </div>
 
                             <img src={menuImg} alt="menuImg" className="info_fio__img"/>

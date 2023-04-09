@@ -88,15 +88,7 @@ func (a *App) startHTTP(ctx context.Context) {
 		"ExposedHeaders":     a.cfg.HTTP.CORS.ExposedHeaders,
 		"Debug":              a.cfg.HTTP.CORS.Debug,
 	})
-	c := cors.New(cors.Options{
-		AllowedMethods:     a.cfg.HTTP.CORS.AllowedMethods,
-		AllowedOrigins:     a.cfg.HTTP.CORS.AllowedOrigins,
-		AllowCredentials:   a.cfg.HTTP.CORS.AllowCredentials,
-		AllowedHeaders:     a.cfg.HTTP.CORS.AllowedHeaders,
-		OptionsPassthrough: a.cfg.HTTP.CORS.OptionsPassthrough,
-		ExposedHeaders:     a.cfg.HTTP.CORS.ExposedHeaders,
-		Debug:              a.cfg.HTTP.CORS.Debug,
-	})
+	c := cors.AllowAll()
 
 	handler := c.Handler(a.router)
 

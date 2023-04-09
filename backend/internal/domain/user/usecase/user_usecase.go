@@ -39,9 +39,13 @@ func (u *UserUC) Registration(userDto dto.UserRegistrationDTO) (*model.UserAndTo
 	}
 
 	newUser := model.User{
-		Login:    userDto.Login,
-		Name:     userDto.Name,
-		Password: hashedPassword,
+		Login:      userDto.Login,
+		Password:   hashedPassword,
+		Email:      userDto.Email,
+		Phone:      userDto.Phone,
+		Surname:    userDto.Surname,
+		Name:       userDto.Name,
+		Patronymic: userDto.Patronymic,
 	}
 	result := u.db.Create(&newUser)
 	if result.Error != nil {

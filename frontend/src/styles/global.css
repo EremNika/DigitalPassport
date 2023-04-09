@@ -30,7 +30,12 @@ button {
     transition: all .5s;
 }
 
-button:hover {
+button:disabled,
+button[disabled] {
+    opacity: .5;
+}
+
+button:hover:not([disabled]) {
     box-shadow: 16px 15px 60px rgba(58, 107, 142, 0.8);
 }
 
@@ -85,4 +90,15 @@ button:hover {
 
 .with-full {
     width: 100%;
+}
+
+.spinner {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
 }

@@ -13,7 +13,7 @@ http:
   cors:
     debug: true
     allowed-methods: ["GET", "POST", "PATCH", "PUT", "OPTIONS", "DELETE"]
-    allowed-origins:
+    allowed_origins:
       - "http://localhost:3000"
     allow-credentials: true
     allowed-headers:

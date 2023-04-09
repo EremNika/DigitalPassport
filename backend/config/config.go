@@ -30,12 +30,12 @@ type Config struct {
 		ReadTimeout  time.Duration `yaml:"read-timeout" env:"HTTP_READ_TIMEOUT"`
 		WriteTimeout time.Duration `yaml:"write-timeout" env:"HTTP_WRITE_TIMEOUT"`
 		CORS         struct {
-			AllowedMethods     []string `yaml:"allowed_methods" env:"HTTP-CORS-ALLOWED-METHODS"`
-			AllowedOrigins     []string `yaml:"allowed_origins"`
-			AllowCredentials   bool     `yaml:"allow_credentials"`
-			AllowedHeaders     []string `yaml:"allowed_headers"`
-			OptionsPassthrough bool     `yaml:"options_passthrough"`
-			ExposedHeaders     []string `yaml:"exposed_headers"`
+			AllowedMethods     []string `yaml:"allowed-methods" env:"HTTP-CORS-ALLOWED-METHODS"`
+			AllowedOrigins     []string `yaml:"allowed-origins"`
+			AllowCredentials   bool     `yaml:"allow-credentials"`
+			AllowedHeaders     []string `yaml:"allowed-headers"`
+			OptionsPassthrough bool     `yaml:"options-passthrough"`
+			ExposedHeaders     []string `yaml:"exposed-headers"`
 			Debug              bool     `yaml:"debug"`
 		} `yaml:"cors"`
 	} `yaml:"http"`
