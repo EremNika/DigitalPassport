@@ -1,0 +1,68 @@
+.container {
+    max-width: 420px;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.logo__img {
+    width: 255px;
+    height: 252px;
+}
+
+.logo__title {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #2A00A2;
+}
+
+.scan {
+    width: 419px;
+    height: 521px;
+    background: #FFFFFF;
+    box-shadow: -22px 19px 100px rgba(58, 107, 142, 0.5);
+    border-radius: 30px;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+.ellipse__birch {
+    position: absolute;
+    top: 186px;
+    left: 0;
+}
+
+.ellipse__pink {
+    position: absolute;
+    top: 633px;
+    right: 0;
+}
+
+.ellipse__green {
+    position: absolute;
+    top: 0;
+    right: 133px;
+}
+
+.ellipse__beige {
+    position: absolute;
+    top: 783px;
+    left: 0;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 30px;
+}

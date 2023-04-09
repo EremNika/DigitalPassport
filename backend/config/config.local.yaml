@@ -1,0 +1,39 @@
+---
+app:
+  is-debug: true
+  jwt-token:
+    access-token-key: "access_private_key"
+    access-token-expired-in: 15m
+    refresh-token-key: "refresh_private_key"
+    refresh-token-expired-in: 43200m #30 day
+
+http:
+  ip: 0.0.0.0
+  port: 8080
+  cors:
+    debug: true
+    allowed-methods: ["GET", "POST", "PATCH", "PUT", "OPTIONS", "DELETE"]
+    allowed-origins:
+      - "http://localhost:3000"
+    allow-credentials: true
+    allowed-headers:
+      - "Authorization"
+      - "Location"
+      - "Charset"
+      - "Access-Control-Allow-Origin"
+      - "Content-Type"
+      - "Origin"
+      - "Accept"
+      - "Content-Length"
+      - "Accept-Encoding"
+      - "X-CSRF-Token"
+    options-passthrough: true
+    exposed-headers:
+      - "Location"
+      - "Authorization"
+      - "Content-Disposition"
+
+mail:
+  ssl: true
+
+client-url: "http://127.0.0.1:3000"
