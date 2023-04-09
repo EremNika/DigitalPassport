@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url("../../assets/fonts/Montserrat-Regular.ttf");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    color: #20007C;
+    background-color: #D7EEFF;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.title {
+    font-style: normal;
+    font-size: 48px;
+    color: #220575;
+    font-weight: bold;
+    margin-top: 86px;
+    margin-bottom: 54px;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.documents {
+    margin-right: 94px;
+}
+
+.documents_title {
+    font-size: 36px;
+    line-height: 44px;
+    color: #000665;
+    margin-bottom: 31px;
+}
+
+.documents_img {
+    max-width: 213px;
+}
+
+.info {
+    max-width: 556px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 1px 28px 90px rgba(58, 107, 142, 0.5);
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.info_title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 68px;
+}
+
+.info_title__text {
+    max-width: 380px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: #20007C;
+}
+
+.info_title__img {
+    width: 60px;
+    margin-left: 15px;
+}
+
+.info_about {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(0, 8, 124, 0.66);
+    padding-bottom: 13px;
+    margin-bottom: 25px;
+}
+
+.info_about__img {
+    max-width: 191px;
+    max-height: 244px;
+}
+
+.info_about__data {
+    max-width: 200px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #18006D;
+    margin-left: 37px;
+}
+
+.info_about__data_inject {
+    margin-bottom: 21px;
+}
+
+.info_about__data_rosp {
+    margin-top: 12px;
+}
+
+.info_fio {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.info_fio__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    color: #000665;
+}
+
+.info_fio__img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.notification {
+    display: flex;
+    flex-direction: column;
+    max-width: 216px;
+    margin-left: 105px;
+}
+
+.widget_notification {
+    margin-bottom: 29px;
+}
