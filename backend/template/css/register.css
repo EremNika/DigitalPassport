@@ -1,0 +1,75 @@
+form {
+    margin-bottom: 117px;
+}
+
+.title {
+    margin-top: 80px;
+    margin-left: 30px;
+}
+
+.scan {
+    max-width: 544px;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 2px 32px 60px rgba(58, 107, 142, 0.5);
+    border-radius: 30px;
+    padding: 63px 30px 48px 30px;
+    text-align: center;
+    margin-right: 80px;
+}
+
+.scan > .input {
+    margin-bottom: 27px;
+}
+
+.scan > .input:last-child {
+    margin-bottom: 0;
+}
+
+.icon__scan {
+    max-width: 236px;
+    max-height: 284px;
+    margin-bottom: 100px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.icon__scan:hover {
+    transform: scale(1.1);
+}
+
+.form {
+    max-width: 544px;
+    width: 100%;
+    background: #FFFFFF;
+    padding: 63px 30px 48px 30px;
+    box-shadow: 2px 32px 60px rgba(58, 107, 142, 0.5);
+    border-radius: 30px;
+}
+
+.form > .input {
+    margin-bottom: 39px;
+}
+
+.form > .input:last-child {
+    margin-bottom: 52px;
+}
+
+.agree {
+    margin-top: 17px;
+    max-width: 461px;
+    line-height: 24px;
+    text-align: center;
+    color: #9F8DD1;
+}
+
+.btn_submit {
+    border: 3px solid #2A00A2;
+    border-radius: 39px;
+}
+
+.form__link {
+    margin-top: 30px;
+    text-align: center;
+    display: block;
+}
