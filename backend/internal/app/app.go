@@ -17,6 +17,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/cors"
+	csrf "github.com/utrack/gin-csrf"
 )
 
 type App struct {
@@ -88,7 +89,20 @@ func (a *App) startHTTP(ctx context.Context) {
 		"ExposedHeaders":     a.cfg.HTTP.CORS.ExposedHeaders,
 		"Debug":              a.cfg.HTTP.CORS.Debug,
 	})
-	c := cors.AllowAll()
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://127.0.0.1:3000"},
+		AllowCredentials: true,
+		Debug:            true,
+		AllowedHeaders:   []string{"Authorization"},
+	})
+
+	a.router.Use(csrf.Middleware(csrf.Options{
+		Secret: "secret123",
+		ErrorFunc: func(c *gin.Context) {
+			c.String(400, "CSRF token mismatch")
+			c.Abort()
+		},
+	}))
 
 	handler := c.Handler(a.router)
 

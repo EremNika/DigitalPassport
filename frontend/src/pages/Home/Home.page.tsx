@@ -7,14 +7,19 @@ import menuImg from '@/assets/img/menu.png'
 import gerbImg from '@/assets/img/gerb.png'
 
 import './home.styles.css'
-import { useAppDispatch, useAppSelector } from "@/store";
-import { fetchUser, selectUser } from "@/store/slices/user.slice";
+import { useAppSelector } from "@/store";
+import { selectUser } from "@/store/slices/user.slice";
 import { useNavigate } from "react-router-dom";
 
 export const HomePage: FC = () => {
     const user = useAppSelector(selectUser)
     const navigate = useNavigate()
 
+    const onLogOut = () => {
+        localStorage.clear()
+        navigate('/login')
+        location.reload()
+    }
 
     useEffect(() => {
         if (!user.login) {
@@ -51,7 +56,7 @@ export const HomePage: FC = () => {
                                 <div>Отчество: {user.patronymic}</div>
                             </div>
 
-                            <img src={menuImg} alt="menuImg" className="info_fio__img"/>
+                            <img src={menuImg} alt="menuImg" className="info_fio__img" onClick={onLogOut}/>
                         </div>
                     </div>
 
